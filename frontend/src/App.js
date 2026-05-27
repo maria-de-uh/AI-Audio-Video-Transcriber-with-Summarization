@@ -1,25 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+return (
+  <div className="app">
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="container">
+
+      <h1 className="title">
+        AI Transcriber
+      </h1>
+
+      <p className="subtitle">
+        Upload audio or video and generate AI summaries
+      </p>
+
+      <div className="upload-section">
+
+        <input
+          type="file"
+          className="file-input"
+          onChange={(e) => setFile(e.target.files[0])}
+        />
+
+        <button
+          className="upload-btn"
+          onClick={handleUpload}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+          Upload
+        </button>
 
-export default App;
+      </div>
+
+      <div className="output-box">
+
+        <h2 className="output-title">
+          Transcript
+        </h2>
+
+        <p className="output-text">
+          {transcript}
+        </p>
+
+      </div>
+
+      <div className="output-box">
+
+        <h2 className="output-title">
+          Summary
+        </h2>
+
+        <p className="output-text">
+          {summary}
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+);
