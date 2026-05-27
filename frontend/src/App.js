@@ -1,4 +1,29 @@
-return (
+import React, { useState } from "react";
+import axios from "axios";
+import "./App.css";
+
+function App() {
+
+  const [file, setFile] = useState(null);
+  const [transcript, setTranscript] = useState("");
+  const [summary, setSummary] = useState("");
+
+  const handleUpload = async () => {
+
+    const formData = new FormData();
+
+    formData.append("file", file);
+
+    const response = await axios.post(
+      "http://127.0.0.1:5000/upload",
+      formData
+    );
+
+    setTranscript(response.data.transcript);
+    setSummary(response.data.summary);
+  };
+
+  return (
   <div className="app">
 
     <div className="container">
@@ -56,3 +81,6 @@ return (
 
   </div>
 );
+}
+
+export default App;
