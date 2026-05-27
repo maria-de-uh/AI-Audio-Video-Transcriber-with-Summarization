@@ -157,7 +157,7 @@ npm start
 
 ## Screenshots
 
-![alt text](image\image.png)
+![alt text](image.png)
 
 ---
 
